@@ -1,84 +1,139 @@
-/* ============ ASHES OF UNITY — styles.css ============ */
-/* Fonts */
+/* ===============================
+   ASHES OF UNITY — Global Styles
+   Premium MMO look (Cinzel + Inter)
+   =============================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap');
 
 /* Theme tokens */
 :root{
-  --bg:#0b0c10;
-  --bg-2:#0f1117;
-  --surface:#12141a;
-  --line-1:rgba(255,255,255,.06);
-  --line-2:rgba(255,255,255,.12);
-  --text:#eaeaea;
+  --bg: #0b0c10;         /* deep charcoal */
+  --bg-2: #0f1117;        /* glassy nav backing */
+  --surface:#12141a;      /* card */
+  --line-1: rgba(255,255,255,.06);
+  --line-2: rgba(255,255,255,.12);
+  --text: #eaeaea;
   --muted:#a9b1bf;
-  --brand:#f4f1e6;
-  --gold:#efd381;
+  --brand:#f4f1e6;        /* warm off-white headings */
+  --gold: #efd381;        /* subtle gold accents */
 }
 
-/* Base */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+/* Base reset-ish */
+*{ box-sizing:border-box }
+html,body{ margin:0; padding:0 }
+img{ max-width:100%; display:block }
+a{ color:var(--gold); text-decoration:none }
+a:hover{ opacity:.92 }
+
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  line-height:1.6;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
 }
-h1,h2,h3{font-family:"Cinzel",serif;color:var(--brand);letter-spacing:.02em;margin:0 0 .5rem}
-p{margin:0 0 1rem}
-a{color:var(--gold);text-decoration:none}
-a:hover{opacity:.92}
 
-/* Layout */
-.container{width:min(1200px,92vw);margin:0 auto;padding:0 0}
-.page{padding:28px 0 48px}
+/* Containers & layout */
+.container{ width:min(1200px,92vw); margin:0 auto }
+.page{ padding: 28px 0 48px }
 
-/* Nav */
+/* Top Nav — glass + subtle gold */
 .nav{
-  position:sticky;top:0;z-index:10;
-  background:rgba(12,14,18,.7);
-  backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--line-1);
+  position: sticky; top:0; z-index: 20;
+  background: rgba(12,14,18,.65);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line-1);
 }
 .nav-inner{
-  height:64px;display:flex;align-items:center;justify-content:space-between;
-  width:min(1200px,92vw);margin:0 auto;padding:0 10px;
+  height: 64px;
+  display:flex; align-items:center; justify-content:space-between;
+  width:min(1200px,92vw); margin:0 auto; padding:0 8px;
 }
-.brand{font-family:"Cinzel",serif;font-weight:700;letter-spacing:.06em}
-nav a{color:#e7e4d7;margin-left:16px;padding:8px 10px;border-radius:8px;border:1px solid transparent}
-nav a:hover, nav a.active{border-color:var(--line-2);background:linear-gradient(180deg,rgba(22,22,28,.7),rgba(22,22,28,.45))}
+.brand{
+  font-family: "Cinzel", serif;
+  font-weight:700;
+  letter-spacing:.06em;
+  color: var(--brand);
+}
+nav a{
+  color:#e7e4d7;
+  margin-left: 16px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border:1px solid transparent;
+  transition: .2s ease;
+}
+nav a:hover, nav a.active{
+  border-color: var(--line-2);
+  background: linear-gradient(180deg, rgba(24,24,30,.7), rgba(24,24,30,.45));
+}
 
-/* Hero */
+/* Hero — cinematic gradient + optional image */
 .hero{
-  position:relative;min-height:48vh;display:grid;place-items:center;text-align:center;
-  background:radial-gradient(80% 60% at 50% 30%, #151a22 0%, #0b0c10 70%);
-  overflow:hidden;border-bottom:1px solid var(--line-2);
+  position:relative;
+  min-height: 60vh;
+  display:grid; place-items:center;
+  text-align:center;
+  background:
+    radial-gradient(80% 60% at 50% 30%, #171b23 0%, #0b0c10 70%);
+  border-bottom:1px solid var(--line-2);
+  overflow:hidden;
 }
 .hero::before{
-  content:"";position:absolute;inset:0;
-  background:var(--hero-img) center/cover no-repeat;
-  opacity:.28;filter:saturate(.95) contrast(1.05);
+  content:"";
+  position:absolute; inset:0;
+  background: var(--hero-img, none) center/cover no-repeat;
+  opacity:.28;
+  filter: saturate(.95) contrast(1.05) blur(1px);
 }
-.hero-inner{position:relative;padding:56px 16px}
-.lead{color:var(--muted)}
+.hero-inner{ position:relative; padding:72px 16px }
+.hero h1{
+  font-family:"Cinzel", serif;
+  font-weight:700;
+  font-size: clamp(36px, 5vw, 68px);
+  letter-spacing:.06em;
+  margin:0 0 8px;
+  color: var(--brand);
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+.lead{
+  color: var(--muted);
+  font-size: clamp(16px, 1.7vw, 20px);
+}
 
-/* Cards (home & hubs) */
-.cards{display:grid;gap:18px;grid-template-columns:1fr}
-@media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
+/* Home feature cards */
+.section{ padding: 42px 0 80px }
+.cards{ display:grid; gap:18px; grid-template-columns: 1fr }
+@media (min-width: 900px){ .cards{ grid-template-columns: repeat(3, 1fr) } }
+
 .card{
-  background:var(--surface);border:1px solid var(--line-2);border-radius:14px;overflow:hidden;
-  transition:transform .2s ease,border-color .2s ease, box-shadow .2s ease;
-  box-shadow:0 0 16px rgba(239,211,129,.06);
+  display:block;
+  background: var(--surface);
+  border:1px solid var(--line-2);
+  border-radius: 14px;
+  overflow:hidden;
   color:inherit;
+  box-shadow: 0 0 16px rgba(239,211,129,.06);
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
 }
-.card:hover{transform:translateY(-4px);border-color:rgba(239,211,129,.35);box-shadow:0 0 24px rgba(239,211,129,.14)}
-.card img{width:100%;height:170px;object-fit:cover;display:block;filter:saturate(.95)}
-.card .pad{padding:14px 16px}
-.card h3{margin:.1rem 0 .4rem}
-
-/* Faction grid */
-.grid{display:grid;gap:18px;grid-template-columns:1fr}
-@media(min-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+.card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(239,211,129,.35);
+  box-shadow: 0 0 26px rgba(239,211,129,.14);
+}
+.card img{ height: 190px; width:100%; object-fit:cover; filter:saturate(.95) }
+.card .pad{ padding: 14px 16px }
+.card h3{
+  margin:.15rem 0 .35rem;
+  font-family:"Cinzel", serif;
+  color: var(--brand);
+  letter-spacing:.03em;
+}
 
 /* Footer */
-.footer{border-top:1px solid var(--line-1);background:var(--bg-2);padding:18px 0;text-align:center;color:#cfcbb7}
+.footer{
+  border-top:1px solid var(--line-1);
+  background: var(--bg-2);
+  color:#cfcbb7;
+  text-align:center;
+  padding: 18px 0;
+}
