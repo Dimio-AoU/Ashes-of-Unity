@@ -2,67 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="Cache-Control" content="no-store" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ashes of Unity — Home</title>
-  <link rel="stylesheet" href="./styles.css" />
-  <style>
-    /* If you have a hero image, set it here. Replace landing.jpg with your PNG when ready. */
-    :root{ --hero-img: url('./assets/images/hero/landing.jpg'); }
-  </style>
+  <title>Ashes of Unity — Official Site</title>
+  <meta name="description" content="Ashes of Unity — choose your path. Holy Empire, Knights Order, Shadowborn, Arcane Order." />
+  <!-- Preload hero art (safe even if missing) -->
+  <link rel="preload" as="image" href="assets/images/landing.png" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- NAV -->
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="brand">ASHES OF UNITY</div>
-      <nav>
-        <a class="active" href="./index.html">Home</a>
-        <a href="./pages/factions/index.html">Factions</a>
-        <a href="./pages/balance.html">Balance</a>
-        <a href="./pages/systems.html">Systems</a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-inner container">
-      <h1>Forge Your Legend</h1>
-      <p class="lead">Faith • Discipline • Shadow • Knowledge — four powers vying for the World Core.</p>
-    </div>
+  <header class="site-nav">
+    <span class="brand">Ashes of Unity</span>
+    <nav>
+      <!-- These point to # for now; we’ll wire real pages in a later step -->
+      <a href="#">Factions</a>
+      <a href="#">Systems</a>
+      <a href="#">Balance</a>
+    </nav>
   </header>
 
-  <!-- FEATURE CARDS -->
-  <section class="section">
-    <div class="container cards">
-      <!-- Factions -->
-      <a class="card" href="./pages/factions/index.html">
-        <img src="./assets/images/hero/landing.jpg" alt="Explore Factions">
-        <div class="pad">
-          <h3>Explore Factions</h3>
-          <p class="lead" style="margin:0">Holy Empire • Knights Order • Shadowborn • Arcane Order</p>
-        </div>
-      </a>
-      <!-- Systems -->
-      <a class="card" href="./pages/systems.html">
-        <img src="./assets/images/hero/landing.jpg" alt="Game Systems">
-        <div class="pad">
-          <h3>Game Systems</h3>
-          <p class="lead" style="margin:0">Leveling • Stats • Skills • Prestige</p>
-        </div>
-      </a>
-      <!-- Balance -->
-      <a class="card" href="./pages/balance.html">
-        <img src="./assets/images/hero/landing.jpg" alt="Balance Philosophy">
-        <div class="pad">
-          <h3>Balance Philosophy</h3>
-          <p class="lead" style="margin:0">Circular parity. No hard winners—only counters.</p>
-        </div>
-      </a>
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-bg" role="img" aria-label="Good vs Evil battlefield"></div>
+    <div class="hero-inner">
+      <h1 class="title-xxl glow">Choose Your Fate</h1>
+      <p class="subtitle">Light and Shadow clash over the World Core. Will you defend, command, corrupt, or transcend?</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#">Explore Factions</a>
+        <a class="btn btn-dark" href="#">Game Systems</a>
+      </div>
     </div>
   </section>
 
-  <footer class="footer">© Ashes of Unity</footer>
+  <!-- GOOD vs EVIL SPLIT -->
+  <section class="split" aria-label="Good vs Evil">
+    <article class="panel good">
+      <img src="assets/images/factions/AoU-GoodFactionV.png" alt="Radiant heroes preparing for battle" />
+      <div class="panel-copy">
+        <h2 class="title-lg gold">The Radiant Host</h2>
+        <p>Holy Empire and Knights Order champion resilience, honor, and radiant order.</p>
+        <a class="link-ghost" href="#">See Good Factions →</a>
+      </div>
+    </article>
+
+    <article class="panel evil">
+      <img src="assets/images/factions/AoU-EvilFactionV.png" alt="Shadow and arcane casters preparing for battle" />
+      <div class="panel-copy">
+        <h2 class="title-lg red">The Veiled Dominion</h2>
+        <p>Shadowborn and Arcane Order wield poison, curses, and unbound power.</p>
+        <a class="link-ghost" href="#">See Evil Factions →</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- FEATURE CARDS -->
+  <section class="cards" aria-label="Quick Links">
+    <a class="card" href="#">
+      <div class="card-media media-factions"></div>
+      <div class="card-body">
+        <h3>Factions Overview</h3>
+        <p>Philosophy, roles, archetypes & classes.</p>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card-media media-systems"></div>
+      <div class="card-body">
+        <h3>Game Systems</h3>
+        <p>Leveling • Stats • Skills • Prestige</p>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card-media media-balance"></div>
+      <div class="card-body">
+        <h3>Balance Philosophy</h3>
+        <p>Light ⚔ Shadow • Order ⚔ Chaos</p>
+      </div>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© Ashes of Unity</p>
+  </footer>
 </body>
 </html>
