@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
+  <!-- NAV -->
   <header class="site-nav">
     <a class="brand" href="../index.html">Ashes of Unity</a>
     <nav>
@@ -16,7 +17,8 @@
     </nav>
   </header>
 
-  <section class="hero">
+  <!-- PAGE HERO -->
+  <section class="hero" aria-label="Factions">
     <div class="hero-bg" style="
       background-image:
         linear-gradient(to bottom, rgba(0,0,0,.45), rgba(11,13,18,.96)),
@@ -26,18 +28,66 @@
       <h1 class="title-xxl glow">Factions of Ashes of Unity</h1>
       <p class="subtitle">Good: Holy Empire • Knights Order — Evil: Shadowborn • Arcane Order</p>
       <div class="cta-row">
-        <a class="btn btn-gold" href="#good">Good Factions</a>
+        <a class="btn btn-gold" href="#overview">Factions Overview</a>
+        <a class="btn btn-dark" href="#good">Good Factions</a>
         <a class="btn btn-dark" href="#evil">Evil Factions</a>
       </div>
     </div>
   </section>
 
+  <!-- OVERVIEW GRID -->
+  <section id="overview" class="content">
+    <h2 class="section-heading">Overview</h2>
+    <div class="grid factions">
+      <!-- Holy Empire -->
+      <article class="tile">
+        <div class="emblem he" aria-hidden="true"></div>
+        <div class="tile-body">
+          <h3 class="tile-title">Holy Empire</h3>
+          <p class="tile-copy">Radiance, order, and divine zeal. Masters of healing and defense.</p>
+          <a class="btn btn-gold btn-sm" href="holy-empire.html">Enter →</a>
+        </div>
+      </article>
+
+      <!-- Knights Order -->
+      <article class="tile">
+        <div class="emblem ko" aria-hidden="true"></div>
+        <div class="tile-body">
+          <h3 class="tile-title">Knights Order</h3>
+          <p class="tile-copy">Discipline, strategy, and magitek steel. Formation control and buffs.</p>
+          <a class="btn btn-gold btn-sm" href="knights-order.html">Enter →</a>
+        </div>
+      </article>
+
+      <!-- Shadowborn -->
+      <article class="tile">
+        <div class="emblem sb" aria-hidden="true"></div>
+        <div class="tile-body">
+          <h3 class="tile-title">Shadowborn</h3>
+          <p class="tile-copy">Corruption and survival. Stealth, poisons, and ruthless burst.</p>
+          <a class="btn btn-dark btn-sm" href="shadowborn.html">Enter →</a>
+        </div>
+      </article>
+
+      <!-- Arcane Order -->
+      <article class="tile">
+        <div class="emblem ao" aria-hidden="true"></div>
+        <div class="tile-body">
+          <h3 class="tile-title">Arcane Order</h3>
+          <p class="tile-copy">Knowledge and raw power. Burst damage and battlefield control.</p>
+          <a class="btn btn-dark btn-sm" href="arcane-order.html">Enter →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- GOOD vs EVIL SPLIT -->
   <section id="good" class="split" aria-label="Good Factions">
     <article class="panel good">
-      <img src="../assets/images/factions/AoU-GoodFactionV.png" alt="Radiant Host" />
+      <img src="../assets/images/factions/AoU-GoodFactionV.png" alt="Radiant Host (Holy Empire & Knights Order)" />
       <div class="panel-copy">
         <h2 class="title-lg gold">Radiant Host</h2>
-        <p>Holy Empire and Knights Order — resilience, honor, radiant order.</p>
+        <p>Holy Empire • Knights Order — resilience, honor, radiant order.</p>
         <a class="link-ghost" href="holy-empire.html">Holy Empire →</a>
         &nbsp;&nbsp;
         <a class="link-ghost" href="knights-order.html">Knights Order →</a>
@@ -47,10 +97,10 @@
 
   <section id="evil" class="split" aria-label="Evil Factions">
     <article class="panel evil">
-      <img src="../assets/images/factions/AoU-EvilFactionV.png" alt="Veiled Dominion" />
+      <img src="../assets/images/factions/AoU-EvilFactionV.png" alt="Veiled Dominion (Shadowborn & Arcane Order)" />
       <div class="panel-copy">
         <h2 class="title-lg red">Veiled Dominion</h2>
-        <p>Shadowborn and Arcane Order — poison, curses, unbound power.</p>
+        <p>Shadowborn • Arcane Order — poison, curses, unbound power.</p>
         <a class="link-ghost" href="shadowborn.html">Shadowborn →</a>
         &nbsp;&nbsp;
         <a class="link-ghost" href="arcane-order.html">Arcane Order →</a>
